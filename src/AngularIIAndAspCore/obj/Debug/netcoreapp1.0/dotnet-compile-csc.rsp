@@ -7,8 +7,8 @@
 -debug:full
 -nostdlib
 -nologo
-"C:\Tutorial\AngularII Projects\AngularIIAndAspCore\src\AngularIIAndAspCore\obj\Debug\netcoreapp1.0\dotnet-compile.assemblyinfo.cs"
--out:"C:\Tutorial\AngularII Projects\AngularIIAndAspCore\src\AngularIIAndAspCore\bin\Debug\netcoreapp1.0\AngularIIAndAspCore.dll"
+"C:\Tutorial\AngularII Projects\AngularIIAndAspCore\angular-aspcore\src\AngularIIAndAspCore\obj\Debug\netcoreapp1.0\dotnet-compile.assemblyinfo.cs"
+-out:"C:\Tutorial\AngularII Projects\AngularIIAndAspCore\angular-aspcore\src\AngularIIAndAspCore\bin\Debug\netcoreapp1.0\AngularIIAndAspCore.dll"
 -r:"C:\Users\lakay\.nuget\packages\Microsoft.ApplicationInsights\2.1.0\lib\dotnet5.4\Microsoft.ApplicationInsights.dll"
 -r:"C:\Users\lakay\.nuget\packages\Microsoft.ApplicationInsights.AspNetCore\1.0.0\lib\netstandard1.6\Microsoft.ApplicationInsights.AspNetCore.dll"
 -r:"C:\Users\lakay\.nuget\packages\Microsoft.AspNetCore.Antiforgery\1.0.1\lib\netstandard1.3\Microsoft.AspNetCore.Antiforgery.dll"
@@ -192,7 +192,7 @@
 -r:"C:\Users\lakay\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll"
 -r:"C:\Users\lakay\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll"
 -r:"C:\Users\lakay\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll"
--resource:"C:\Tutorial\AngularII Projects\AngularIIAndAspCore\src\AngularIIAndAspCore\obj\Debug\netcoreapp1.0\AngularIIAndAspCoredotnet-compile.deps.json",AngularIIAndAspCore.deps.json
-"C:\Tutorial\AngularII Projects\AngularIIAndAspCore\src\AngularIIAndAspCore\Program.cs"
-"C:\Tutorial\AngularII Projects\AngularIIAndAspCore\src\AngularIIAndAspCore\Startup.cs"
-"C:\Tutorial\AngularII Projects\AngularIIAndAspCore\src\AngularIIAndAspCore\Controllers\HomeController.cs"
+-resource:"C:\Tutorial\AngularII Projects\AngularIIAndAspCore\angular-aspcore\src\AngularIIAndAspCore\obj\Debug\netcoreapp1.0\AngularIIAndAspCoredotnet-compile.deps.json",AngularIIAndAspCore.deps.json
+"C:\Tutorial\AngularII Projects\AngularIIAndAspCore\angular-aspcore\src\AngularIIAndAspCore\Program.cs"
+"C:\Tutorial\AngularII Projects\AngularIIAndAspCore\angular-aspcore\src\AngularIIAndAspCore\Startup.cs"
+"C:\Tutorial\AngularII Projects\AngularIIAndAspCore\angular-aspcore\src\AngularIIAndAspCore\Controllers\HomeController.cs"
