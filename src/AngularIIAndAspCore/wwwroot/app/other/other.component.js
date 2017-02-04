@@ -10,14 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 const core_1 = require("@angular/core");
 let OtherComponent = class OtherComponent {
-    constructor() { }
-    ngOnInit() {
+    constructor() {
+        this.stringInterpolation = 'Example of string interpolation';
+        this.numberInterpolation = 2;
+    }
+    ngOnInit() { }
+    testMe() {
+        return true;
+    }
+    onClicked(value) {
+        alert(value);
     }
 };
 OtherComponent = __decorate([
     core_1.Component({
         selector: 'app-other',
-        template: `<h1>Inline Template</h1>`
+        templateUrl: './htm-views/other/other.html',
+        styleUrls: ['./htm-views/other/other.css']
     }),
     __metadata("design:paramtypes", [])
 ], OtherComponent);

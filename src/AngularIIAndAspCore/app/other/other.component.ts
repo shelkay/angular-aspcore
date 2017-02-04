@@ -1,15 +1,26 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
     selector: 'app-other',
-    template: `<h1>Inline Template</h1>`
+    templateUrl: './htm-views/other/other.html',
+    styleUrls: ['./htm-views/other/other.css']
+   
 })
-export class OtherComponent implements OnInit {
+export class OtherComponent   { 
+    stringInterpolation = 'Example of string interpolation';
+    numberInterpolation = 2; 
     constructor() { }
 
-    ngOnInit() {
+    ngOnInit() {}
 
+    testMe() {
+        return true;
     }
+
+    onClicked(value: string) {
+        alert(value);
+    }
+
 }
 
 
