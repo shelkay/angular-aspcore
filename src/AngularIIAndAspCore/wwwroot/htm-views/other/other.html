@@ -1,0 +1,19 @@
+﻿<h1>Inline Template</h1>
+<p>
+    {{ stringInterpolation }}
+</p>
+
+<h1>DOM Property Binding</h1>
+<input type="text" [value]="stringInterpolation"  />
+
+<p [ngClass]="{redBorder: testMe()}">Is this styled?</p>
+<p [ngStyle]="{color: 'green'}">Is this styled green?</p>
+
+<hr />
+<h1>Custom Bindings</h1>
+ 
+<app-databinding [myResult]="10"></app-databinding>
+
+<hr />
+<h1> Event Binding </h1>
+<app-event-binding (clicked)="onClicked($event)"></app-event-binding>
