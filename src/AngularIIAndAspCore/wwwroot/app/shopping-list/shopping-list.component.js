@@ -9,9 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require("@angular/core");
+const shopping_list_service_1 = require("./shopping-list.service");
 let ShoppingListComponent = class ShoppingListComponent {
-    constructor() { }
-    ngOnInit() { }
+    constructor(sls) {
+        this.sls = sls;
+    }
+    ngOnInit() {
+        this.items = this.sls.getItems();
+    }
 };
 ShoppingListComponent = __decorate([
     core_1.Component({
@@ -19,7 +24,7 @@ ShoppingListComponent = __decorate([
         templateUrl: './htm-views/shopping-list/shopping-list.component.html',
         styles: []
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [shopping_list_service_1.ShoppingListService])
 ], ShoppingListComponent);
 exports.ShoppingListComponent = ShoppingListComponent;
 //# sourceMappingURL=shopping-list.component.js.map

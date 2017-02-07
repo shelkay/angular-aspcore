@@ -18,6 +18,8 @@ const recipe_detail_component_1 = require("./recipes/recipe-detail/recipe-detail
 const shopping_list_component_1 = require("./shopping-list/shopping-list.component");
 const shopping_list_add_component_1 = require("./shopping-list/shopping-list-add.component");
 const dropdown_1 = require("./dropdown");
+const recipe_service_1 = require("./recipes/recipe.service");
+const shopping_list_service_1 = require("./shopping-list/shopping-list.service");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -26,7 +28,7 @@ AppModule = __decorate([
         declarations: [recipe_book_component_1.RecipeBookAppComponent, recipe_item_component_1.RecipeItemComponent, recipe_list_component_1.RecipeListComponent,
             header_component_1.HeaderComponent, recipes_component_1.RecipesComponent, recipe_detail_component_1.RecipeDetailComponent, shopping_list_component_1.ShoppingListComponent,
             shopping_list_add_component_1.ShoppingListAddComponent, dropdown_1.DropdownDirective],
-        //providers:[],  add providers here
+        providers: [recipe_service_1.RecipeService, shopping_list_service_1.ShoppingListService],
         bootstrap: [recipe_book_component_1.RecipeBookAppComponent]
     })
 ], AppModule);

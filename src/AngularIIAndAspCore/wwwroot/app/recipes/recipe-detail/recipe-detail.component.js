@@ -10,9 +10,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 const core_1 = require("@angular/core");
 const recipe_1 = require("../recipe");
+const shopping_list_service_1 = require("../../shopping-list/shopping-list.service");
 let RecipeDetailComponent = class RecipeDetailComponent {
-    constructor() { }
+    constructor(sls) {
+        this.sls = sls;
+    }
     ngOnInit() {
+    }
+    onAddToShoppingList() {
+        this.sls.addItems(this.selectedRecipe.ingredients);
     }
 };
 __decorate([
@@ -24,7 +30,7 @@ RecipeDetailComponent = __decorate([
         selector: 'rb-recipe-detail',
         templateUrl: './htm-views/recipes/recipe-detail/recipe-detail.component.html',
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [shopping_list_service_1.ShoppingListService])
 ], RecipeDetailComponent);
 exports.RecipeDetailComponent = RecipeDetailComponent;
 //# sourceMappingURL=recipe-detail.component.js.map
