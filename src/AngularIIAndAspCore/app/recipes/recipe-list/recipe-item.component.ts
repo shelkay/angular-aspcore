@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, Input } from '@angular/core';
+﻿import { Component,  Input } from '@angular/core';
 import { Recipe } from '../recipe';
 
 @Component({
@@ -6,14 +6,8 @@ import { Recipe } from '../recipe';
     templateUrl: './htm-views/recipes/recipe-item.component.html',
     styles: []
 })
-export class RecipeItemComponent implements OnInit {
+export class RecipeItemComponent   {
     // recipe will be set by outside component recipe-list
-    @Input() recipe: Recipe;  
-    recipeId: number;
-
-    constructor() { }
-
-    ngOnInit() { }
-
-
+    @Input() recipe: Recipe;
+    @Input() recipeId: number;
 }

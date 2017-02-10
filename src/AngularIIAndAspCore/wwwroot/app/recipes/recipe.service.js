@@ -24,6 +24,12 @@ let RecipeService = class RecipeService {
     getRecipes() {
         return this.recipes;
     }
+    getRecipe(id) {
+        return this.recipes[id];
+    }
+    deleteRecipe(recipe) {
+        this.recipes.splice(this.recipes.indexOf(recipe), 1);
+    }
 };
 RecipeService = __decorate([
     core_1.Injectable(),

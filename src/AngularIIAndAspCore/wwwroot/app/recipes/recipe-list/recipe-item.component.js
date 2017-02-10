@@ -11,20 +11,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 const core_1 = require("@angular/core");
 const recipe_1 = require("../recipe");
 let RecipeItemComponent = class RecipeItemComponent {
-    constructor() { }
-    ngOnInit() { }
 };
 __decorate([
     core_1.Input(),
     __metadata("design:type", recipe_1.Recipe)
 ], RecipeItemComponent.prototype, "recipe", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Number)
+], RecipeItemComponent.prototype, "recipeId", void 0);
 RecipeItemComponent = __decorate([
     core_1.Component({
         selector: 'rb-recipe-item',
         templateUrl: './htm-views/recipes/recipe-item.component.html',
         styles: []
-    }),
-    __metadata("design:paramtypes", [])
+    })
 ], RecipeItemComponent);
 exports.RecipeItemComponent = RecipeItemComponent;
 //# sourceMappingURL=recipe-item.component.js.map

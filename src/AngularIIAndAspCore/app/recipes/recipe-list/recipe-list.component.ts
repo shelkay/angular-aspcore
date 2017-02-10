@@ -11,7 +11,7 @@ export class RecipeListComponent implements OnInit {
     // we are setting the recipe here and then making making it available to the recipe variable in recipe-item-component 
 
     recipes: Recipe[] = [];
-    @Output() recipeSelected = new EventEmitter<Recipe>();
+    //@Output() recipeSelected = new EventEmitter<Recipe>();
 
     constructor(private recipeService: RecipeService ) { }
 
@@ -20,6 +20,6 @@ export class RecipeListComponent implements OnInit {
     }
 
     onSelected(recipe: Recipe) {
-        this.recipeSelected.emit(recipe);
+       // this.recipeSelected.emit(recipe);
     }
 }

@@ -9,28 +9,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require("@angular/core");
-const recipe_1 = require("../recipe");
+const router_1 = require("@angular/router");
+const recipe_service_1 = require("../recipe.service");
 const shopping_list_service_1 = require("../../shopping-list/shopping-list.service");
 let RecipeDetailComponent = class RecipeDetailComponent {
-    constructor(sls) {
+    constructor(sls, route, recipeService) {
         this.sls = sls;
+        this.route = route;
+        this.recipeService = recipeService;
     }
     ngOnInit() {
+        this.subscription = this.route.params.subscribe((params) => {
+            this.recipeIndex = params['id'];
+            this.selectedRecipe = this.recipeService.getRecipe(this.recipeIndex);
+        });
+    }
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
     }
     onAddToShoppingList() {
         this.sls.addItems(this.selectedRecipe.ingredients);
     }
 };
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", recipe_1.Recipe)
-], RecipeDetailComponent.prototype, "selectedRecipe", void 0);
 RecipeDetailComponent = __decorate([
     core_1.Component({
         selector: 'rb-recipe-detail',
         templateUrl: './htm-views/recipes/recipe-detail/recipe-detail.component.html',
     }),
-    __metadata("design:paramtypes", [shopping_list_service_1.ShoppingListService])
+    __metadata("design:paramtypes", [shopping_list_service_1.ShoppingListService,
+        router_1.ActivatedRoute,
+        recipe_service_1.RecipeService])
 ], RecipeDetailComponent);
 exports.RecipeDetailComponent = RecipeDetailComponent;
 //# sourceMappingURL=recipe-detail.component.js.map
