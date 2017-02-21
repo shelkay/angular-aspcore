@@ -13,9 +13,16 @@ const shopping_list_service_1 = require("./shopping-list.service");
 let ShoppingListComponent = class ShoppingListComponent {
     constructor(sls) {
         this.sls = sls;
+        this.selectedItem = null;
     }
     ngOnInit() {
         this.items = this.sls.getItems();
+    }
+    onSelectItem(item) {
+        this.selectedItem = item;
+    }
+    onCleared() {
+        this.selectedItem = null;
     }
 };
 ShoppingListComponent = __decorate([

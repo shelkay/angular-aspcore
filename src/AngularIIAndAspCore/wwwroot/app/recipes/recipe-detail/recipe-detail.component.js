@@ -13,16 +13,24 @@ const router_1 = require("@angular/router");
 const recipe_service_1 = require("../recipe.service");
 const shopping_list_service_1 = require("../../shopping-list/shopping-list.service");
 let RecipeDetailComponent = class RecipeDetailComponent {
-    constructor(sls, route, recipeService) {
+    constructor(sls, route, recipeService, router) {
         this.sls = sls;
         this.route = route;
         this.recipeService = recipeService;
+        this.router = router;
     }
     ngOnInit() {
         this.subscription = this.route.params.subscribe((params) => {
             this.recipeIndex = params['id'];
             this.selectedRecipe = this.recipeService.getRecipe(this.recipeIndex);
         });
+    }
+    onEdit() {
+        this.router.navigate(['/recipes', this.recipeIndex, 'edit']);
+    }
+    onDelete() {
+        this.recipeService.deleteRecipe(this.selectedRecipe);
+        this.router.navigate(['/recipes']);
     }
     ngOnDestroy() {
         this.subscription.unsubscribe();
@@ -38,7 +46,8 @@ RecipeDetailComponent = __decorate([
     }),
     __metadata("design:paramtypes", [shopping_list_service_1.ShoppingListService,
         router_1.ActivatedRoute,
-        recipe_service_1.RecipeService])
+        recipe_service_1.RecipeService,
+        router_1.Router])
 ], RecipeDetailComponent);
 exports.RecipeDetailComponent = RecipeDetailComponent;
 //# sourceMappingURL=recipe-detail.component.js.map
