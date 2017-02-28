@@ -28,7 +28,7 @@ let AppModule = class AppModule {
 };
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, app_routing_1.routing],
+        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, app_routing_1.routing, forms_1.ReactiveFormsModule],
         declarations: [recipe_book_component_1.RecipeBookAppComponent, recipe_item_component_1.RecipeItemComponent, recipe_list_component_1.RecipeListComponent,
             header_component_1.HeaderComponent, recipes_component_1.RecipesComponent, recipe_detail_component_1.RecipeDetailComponent, shopping_list_component_1.ShoppingListComponent,
             shopping_list_add_component_1.ShoppingListAddComponent, dropdown_1.DropdownDirective, recipe_start_component_1.RecipeStartComponent, recipe_edit_component_1.RecipeEditComponent],

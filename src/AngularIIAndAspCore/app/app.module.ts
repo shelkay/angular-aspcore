@@ -1,6 +1,6 @@
 ﻿import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http'; 
 import { RecipeBookAppComponent } from './recipes/recipe-book.component';
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item.component';
@@ -16,12 +16,13 @@ import { RecipeService } from './recipes/recipe.service';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { RecipeStartComponent } from './recipes/recipe-start.component';
 import { routing } from './app.routing';
-import {  APP_BASE_HREF } from '@angular/common';
+import { APP_BASE_HREF } from '@angular/common';
+ 
 
 
  
 @NgModule({  
-    imports: [BrowserModule, FormsModule, HttpModule, routing],
+    imports: [BrowserModule, FormsModule, HttpModule, routing, ReactiveFormsModule],
     declarations: [RecipeBookAppComponent, RecipeItemComponent, RecipeListComponent,
         HeaderComponent, RecipesComponent, RecipeDetailComponent, ShoppingListComponent,
         ShoppingListAddComponent, DropdownDirective, RecipeStartComponent, RecipeEditComponent],
