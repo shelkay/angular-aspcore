@@ -30,6 +30,12 @@ let RecipeService = class RecipeService {
     deleteRecipe(recipe) {
         this.recipes.splice(this.recipes.indexOf(recipe), 1);
     }
+    addRecipe(recipe) {
+        this.recipes.push(recipe);
+    }
+    editRecipe(oldRecipe, newRecipe) {
+        this.recipes[this.recipes.indexOf(oldRecipe)] = newRecipe;
+    }
 };
 RecipeService = __decorate([
     core_1.Injectable(),

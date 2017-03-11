@@ -13,10 +13,11 @@ const router_1 = require("@angular/router");
 const forms_1 = require("@angular/forms");
 const recipe_service_1 = require("../recipe.service");
 let RecipeEditComponent = class RecipeEditComponent {
-    constructor(route, recipeService, formBuilder) {
+    constructor(route, recipeService, formBuilder, router) {
         this.route = route;
         this.recipeService = recipeService;
         this.formBuilder = formBuilder;
+        this.router = router;
         this.isNew = true;
     }
     ngOnInit() {
@@ -33,9 +34,40 @@ let RecipeEditComponent = class RecipeEditComponent {
             this.initForm();
         });
     }
+    // Data driven approach, data will look like items contained in this.recipeForm 
+    onSubmit() {
+        const newRecipe = this.recipeForm.value;
+        if (this.isNew) {
+            this.recipeService.addRecipe(newRecipe);
+        }
+        else {
+            //              pass old recipe, new recipe
+            this.recipeService.editRecipe(this.recipe, newRecipe);
+        }
+        this.navigateBack();
+    }
+    onAddItem(name, amount) {
+        this.recipeForm.controls['ingredients'].push(new forms_1.FormGroup({
+            name: new forms_1.FormControl(name, forms_1.Validators.required),
+            amount: new forms_1.FormControl(amount, [
+                forms_1.Validators.required,
+                forms_1.Validators.pattern("\\d+")
+            ])
+        }));
+    }
+    onRemoveItem(index) {
+        this.recipeForm.controls['ingredients'].removeAt(index);
+    }
+    onCancel() {
+        this.navigateBack();
+    }
     // prevent memory leaks from subscription
     ngOnDestroy() {
         this.subscription.unsubscribe();
+    }
+    navigateBack() {
+        // go up one...
+        this.router.navigate(['../']);
     }
     initForm() {
         let recipeName = '';
@@ -72,7 +104,8 @@ RecipeEditComponent = __decorate([
     }),
     __metadata("design:paramtypes", [router_1.ActivatedRoute,
         recipe_service_1.RecipeService,
-        forms_1.FormBuilder])
+        forms_1.FormBuilder,
+        router_1.Router])
 ], RecipeEditComponent);
 exports.RecipeEditComponent = RecipeEditComponent;
 //# sourceMappingURL=recipe-edit.component.js.map

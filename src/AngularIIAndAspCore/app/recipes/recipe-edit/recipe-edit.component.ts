@@ -1,5 +1,5 @@
 ﻿import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Subscription } from "rxjs/Rx";
 import {
     FormArray,
@@ -26,7 +26,8 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
 
     constructor(private route: ActivatedRoute,
         private recipeService: RecipeService,
-        private formBuilder: FormBuilder) { }
+        private formBuilder: FormBuilder,
+        private router: Router) { }
 
     ngOnInit() {   
         this.subscription = this.route.params.subscribe(
@@ -44,9 +45,46 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
         );
     }
 
+    // Data driven approach, data will look like items contained in this.recipeForm 
+    onSubmit() {
+        const newRecipe = this.recipeForm.value;
+        if (this.isNew) {
+            this.recipeService.addRecipe(newRecipe);
+        } else {
+            //              pass old recipe, new recipe
+            this.recipeService.editRecipe(this.recipe, newRecipe);
+        }
+        this.navigateBack();
+    }
+
+    onAddItem(name: string, amount: string) {
+        (<FormArray>this.recipeForm.controls['ingredients']).push(
+            new FormGroup({
+                name: new FormControl(name, Validators.required),
+                amount: new FormControl(amount, [
+                    Validators.required,
+                    Validators.pattern("\\d+")
+                ])
+            })
+        );
+    }
+
+    onRemoveItem(index: number) {
+        (<FormArray>this.recipeForm.controls['ingredients']).removeAt(index);
+    }
+
+    onCancel() {
+        this.navigateBack();
+    }
+
     // prevent memory leaks from subscription
     ngOnDestroy() {
         this.subscription.unsubscribe();
+    }
+
+    private navigateBack() {
+        // go up one...
+        this.router.navigate(['../']);
     }
 
     private initForm( ) {

@@ -24,5 +24,4 @@ export class ShoppingListService {
     deleteItem(item: Ingredient) {
         this.items.splice(this.items.indexOf(item), 1);
     }
-
 }

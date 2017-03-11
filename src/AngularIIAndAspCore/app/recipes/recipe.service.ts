@@ -10,7 +10,8 @@ export class RecipeService {
             new Ingredient('French Fries', 2),
             new Ingredient('Pork Meat', 1)
         ]),
-        new Recipe('Summer Salad', 'Okayish', 'http://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/peruvian-toasted-sweetcorn-avocado-quinoa-salad.jpg?itok=xZCJz9qU', [])
+        new Recipe('Summer Salad', 'Okayish', 'http://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/peruvian-toasted-sweetcorn-avocado-quinoa-salad.jpg?itok=xZCJz9qU',
+            [])
     ];
 
     constructor() { }
@@ -25,5 +26,13 @@ export class RecipeService {
 
     deleteRecipe(recipe: Recipe) {
         this.recipes.splice(this.recipes.indexOf(recipe), 1);
+    }
+
+    addRecipe(recipe: Recipe) {
+        this.recipes.push(recipe);
+    }
+
+    editRecipe(oldRecipe: Recipe, newRecipe: Recipe) {
+        this.recipes[this.recipes.indexOf(oldRecipe)] = newRecipe;
     }
 }
